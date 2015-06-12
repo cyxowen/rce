@@ -1,0 +1,2800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='zh-CN' xml:lang='zh-CN' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico?t=1408501845000" />
+  <title>对 Android 开发者有益的 40 条优化建议 - 技术翻译 - 开源中国社区</title>
+        <link rel="stylesheet" href="/css/channel.css?t=1398073160000" type="text/css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/js/2011/fancybox/jquery.fancybox-1.3.4.css?t=1377425774000" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="最新开源项目" href="http://www.oschina.net/project/rss" />
+  <link rel="alternate" type="application/rss+xml" title="最新开源资讯" href="http://www.oschina.net/news/rss" />
+  <link rel="alternate" type="application/rss+xml" title="最新问题列表" href="http://www.oschina.net/question/rss" />
+  <link rel="alternate" type="application/rss+xml" title="最新翻译列表" href="http://www.oschina.net/translate/rss" />
+  <link rel="alternate" type="application/rss+xml" title="最新博客列表" href="http://www.oschina.net/blog/rss" />
+  <link rel="alternate" type="application/rss+xml" title="最新代码分享列表" href="http://www.oschina.net/code/rss" />
+  <link rel="alternate" type="application/rss+xml" title="开源中国 - 源码列表" href="http://www.oschina.net/code/source_rss" />
+  <script type="text/javascript" src="/js/2012/jquery-1.7.1.min.js?t=1377425776000"></script>
+  <script type="text/javascript" src="/js/2012/jquery.form.js?t=1377425776000"></script>
+  <script type="text/javascript" src="/js/2011/fancybox/jquery.fancybox-fixed.js?t=1395030197000?2014031702"></script>
+    <link rel="stylesheet" href="/js/poshytip/tip-yellowsimple/tip-yellowsimple.css?t=1377425763000" type="text/css" />
+  <script type="text/javascript" src="/js/poshytip/jquery.poshytip.min.js?t=1377425765000"></script>
+  <script type="text/javascript">
+  	g_user = {
+	id:0,
+	name:'',
+	login:false};  </script>
+    <script type="text/javascript" src="/js/2011/oschina.js?t=1377425774000"></script>
+  <script type="text/javascript" src="/js/utils.js?t=1377425784000"></script>
+  <script type="text/javascript" src="/js/channel.js?t=1393367280000?2014022501"></script>
+    </head>
+<body>
+<div id='OSC_NavTop'>
+	<div class="wp998">
+        <div id="OSC_Channels">
+        	<ul>
+        	<li class="item"><a href="http://www.oschina.net/" class='home'>首页</a></li>        	<li class="item control_select"><a href="http://www.oschina.net/project" class='project'>开源项目</a>
+				<ul class="cs_content">					
+                	                	<li><a href="http://www.oschina.net/project/lang/19/java">Java 开源软件</a></li>
+                	<li><a href="http://www.oschina.net/project/lang/194/csharp">C# 开源软件</a></li>
+                	<li><a href="http://www.oschina.net/project/lang/22/php">PHP 开源软件</a></li>
+                	<li><a href="http://www.oschina.net/project/lang/21/c">C/C++ 开源软件</a></li>
+                	<li><a href="http://www.oschina.net/project/lang/26/ruby">Ruby 开源软件</a></li>
+                	<li><a href="http://www.oschina.net/project/lang/25/python">Python 开源软件</a></li>
+                	<li><a href="http://www.oschina.net/project/lang/358/go">Go开源软件</a></li>
+                	<li><a href="http://www.oschina.net/project/lang/28/javascript">JS开源软件</a></li>
+				</ul>
+			</li>
+        	<li class="item control_select">
+				<a href="http://www.oschina.net/question" class='question'>问答</a>				
+				<ul class="cs_content">					
+                	<li><a href="http://www.oschina.net/question?catalog=1"> 技术问答 &raquo; </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=2"> 技术分享 &raquo; </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=3"> IT大杂烩 &raquo; </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=100"> 职业生涯 &raquo; </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=4"> 站务/建议 &raquo; </a></li>
+                	<li><a href="http://www.oschina.net/alipay"> 支付宝专区 &raquo; </a></li>
+                	<li><a href="http://www.oschina.net/hardware"> 开源硬件专区 &raquo; </a></li>
+				</ul>
+			</li>
+        	<li class="item"><a href="http://www.oschina.net/code/list" class='code'>代码</a></li>
+        	        	<li class="item"><a href="http://www.oschina.net/blog" class='blog'>博客</a></li>
+        	<li class="item"><a href="http://www.oschina.net/translate" class='tran hl'>翻译</a></li>
+            <li class="item"><a href="http://www.oschina.net/news" class='news'>资讯</a></li>
+        	<li class="item control_select">
+				<a href="http://www.oschina.net/android" class='mobile'>移动开发</a>
+				<ul class="cs_content cs_mobile">
+                	<li class="android_"><a href="http://www.oschina.net/android">Android开发专区</a></li>
+                	<li class="ios_"><a href="http://www.oschina.net/ios/home">iOS开发专区</a></li>
+                	<li class="ios_"><a href="http://www.oschina.net/ios/codingList">iOS代码库</a></li>
+                	<li class="wp7_"><a href="http://www.oschina.net/wp">Windows Phone</a></li>
+				</ul>
+			</li>
+        	<li class="item t_job"><a href="http://www.oschina.net/job" class='job'>招聘</a></li>
+									            <li class="item control_select">
+                <a href="http://city.oschina.net/" id="MyCities" title="城市圈">城市圈</a>
+							</li>
+        	</ul>
+        </div>
+		<div id="OSC_Userbar">
+                		    		当前访客身份：游客 [ <a href="http://www.oschina.net/home/login?goto_page=http%3A%2F%2Fwww.oschina.net%2Ftranslate%2F40-developer-tips-for-android-optimization">登录</a> | <a href="http://www.oschina.net/home/reg">加入开源中国</a> ]
+    				</div>
+		<div class='clear'></div>
+	</div>
+</div>
+<div id='OSC_Banner'><div class="wp998"><a href='http://www.oschina.net/' class='Logo' title='OSChina 开源中国'>开源中国</a>
+<h1><a href="/translate">技术翻译</a></h1>
+<dl>
+    <dt>已有文章 <em>1922</em> 篇</dt>
+	<dt>
+		当前位置：
+            <a href='/translate/list?type=2'>译文列表</a>&nbsp;&raquo;&nbsp;<a href='/translate/list/3?type=2'>    手机软件开发</a> , <a href="" class="deliver">投递原文</a>
+    		</dt>	
+</dl>
+<form action='http://www.oschina.net/search' class='search'>
+	<input type='hidden' name='scope' value='translate'/>
+	<input id='channel_q' type='text' name='q' value='' placeholder='在 1922 篇翻译的文章中搜索' class='TXT'/>
+    <button type='submit' class='BTN'>搜 索</button>
+</form>
+<script type="text/javascript">
+    $(document).ready(function(){
+        scrolltotop.offset(100,120);
+        scrolltotop.init();
+        $('.deliver').click(function(){
+            popup("/translate/deliver");
+            return false;
+        });
+    });
+</script>
+<div class='clear'></div></div></div>
+<div id="OSC_Screen">
+	<div id="OSC_Content" class='CenterDiv'>
+<style type="text/css">
+.highlight {
+	color: #A00;
+	padding: 0 1px;
+	margin: 0 2px;
+}
+
+.NoData {
+	text-align: center;
+	padding: 20px 0;
+	color: #999;
+}
+
+.error_msg {
+	height: 16px;
+	color: #A00;
+	margin: 10px 0 10px 0;
+	background: url('/img/warning.gif') no-repeat left center;
+	padding-left: 24px;
+}
+
+.error_msg a {
+	padding: 0 5px 0 5px;
+	font-weight: bold;
+}
+
+.ajax_processing {
+	display: none;
+	background: url('/img/loading.gif') no-repeat left center;
+	padding-left: 20px;
+}
+
+label.SELECTED {
+	color: #C00;
+}
+
+input.TEXT,textarea.TEXT,input.SEARCH {
+	border: 1px solid #bbb;
+	font-size: 13px;
+	padding: 3px;
+}
+
+input.BUTTON {
+	height: 25px;
+	line-height: 25px;
+	padding: 0 3px;
+}
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+a.rndbutton {
+	background: #d1c0a5;
+	color: #fff;
+	text-decoration: none;
+	height: 30px;
+	float: left;
+	margin: 0;
+	border: 0px solid #000;
+	font-weight: bold;
+	font-size: 12pt;
+	cursor: pointer;
+}
+
+a.rndbutton:hover {
+	background-color: #bfaa88;
+}
+
+a.rndbutton span {
+	color: #fff;
+	float: left;
+	margin: 0 0 0 10px;
+	padding: 0 10px 0 0;
+	height: 30px;
+	line-height: 30px;
+}
+
+input.rndbutton {
+	background: #4E867B;
+	color: #fff;
+	border: 0px solid #000;
+	cursor: pointer;
+}
+
+input.rndbutton:hover {
+	background-color: #4F978A;
+}
+
+.SmallPortrait {
+	filter: alpha(opacity = 90); /* IE */
+	-moz-opacity: 0.9; /* Moz + FF */
+	opacity: 0.9;
+	padding: 1px;
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+a:hover .SmallPortrait {
+	filter: alpha(opacity = 100); /* IE */
+	-moz-opacity: 1.0; /* Moz + FF */
+	opacity: 1.0;
+	border: 1px solid #40AA53;
+}
+
+.TextContent p {
+	margin-bottom: 5pt;
+}
+
+.TextContent h1,.TextContent h2,.TextContent h3 {
+	margin-bottom: 10pt;
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 5px;
+}
+
+.translate {
+	float: left;
+	width: 678px;
+}
+
+.translate_right {
+	float: right;
+	width: 300px;
+	overflow: hidden;
+}
+
+.translate_right .PopularTags {
+	margin: 0 0 10px 0;
+	background: white;
+	border: 1px solid #eee;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.translate_right .PopularTags p {
+	padding: 10px;
+}
+
+#top_nav {
+	width: 100%;
+	font-size: 14px;
+	line-height: 24px;
+	padding: 2px;
+	border-bottom: 1px solid #40AA53;
+}
+
+#top_nav a {
+	color: #005075;
+	outline: 0;
+	text-decoration: none;
+}
+
+#top_nav .right {
+	float: right;
+	color: #666;
+}
+
+ul.tabnav {
+	text-align: left;
+	margin: 1em 0 0 0;
+	font-weight: bold;
+	font-size: 10pt;
+	border-bottom: medium double #E3E3E3;
+	list-style-type: none;
+	padding: 3px 10px 15px 10px;
+}
+
+ul.tabnav li {
+	display: inline;
+	margin-left: 10px;
+}
+
+ul.tabnav li.current {
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+}
+
+ul.tabnav li.current a {
+	background-color: #0D5178;
+	color: #FFF;
+	cursor: text;
+}
+
+ul.tabnav li a {
+	padding: 4px 8px 5px 8px;
+	color: #666;
+	margin-right: 0px;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+ul.tabnav a:hover {
+	background: #FFF;
+	text-decoration: none;
+}
+
+.header span {
+	margin-left: 10px;
+	font-size: 9pt;
+	color: #666;
+}
+
+.header a.parent {
+	color: #40AA53;
+}
+
+.header em.child {
+	color: #46B;
+	font-style: normal;
+}
+
+.header .more .active {
+	color: #A00;
+}
+
+.remark {
+	margin-top: 8px;
+	font-size: 9pt;
+	color: #999999;
+}
+
+.sta_btn {
+	border: 1px solid #ccc;
+	padding: 2px 5px;
+	float: right;
+	margin-right: 10px;
+	-webkit-box-shadow: 0 1px 3px rgba(198, 198, 198, 0.5);
+	box-shadow: 0 1px 3px rgba(198, 198, 198, 0.5);
+}
+
+.remark a {
+	text-decoration: none;
+}
+
+.remark em {
+	margin-right: 8px;
+	font-style: normal;
+}
+
+.remark span {
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.latest {
+	margin: 10px 10px 0px 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e3e3e3;
+	_height: 1%;
+}
+
+.latest dt a {
+	font-size: 18px;
+}
+
+.latest .content {
+	font-size: 14px;
+	line-height: 24px;
+	height: auto;
+	overflow: hidden;
+	color: #333;
+}
+
+.recommendList {
+	margin-bottom: 10px;
+}
+
+.recommendList a {
+	text-decoration: none;
+}
+
+.recommendList a:hover {
+	text-decoration: underline;
+}
+
+.recommendList a.pic img {
+	float: right;
+	width: 140px;
+	height: 100px;
+	border: 0;
+	margin: 18px 5px;
+}
+
+.recommendList ul {
+	margin: 8px 0;
+}
+
+.recommendList li {
+	float: left;
+	width: 300px;
+	margin: 0 10px;
+	font-size: 12px;
+	line-height: 30px;
+	color: #3E62A6;
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.recommendList li a {
+	font-size: 13px;
+}
+
+.latest span,.recommendList li span {
+	color: #999;
+	font-size: 12px;
+}
+
+.articleList {
+	background: #FFF;
+	padding-bottom: 10px;
+}
+
+.articleList .article {
+	margin: 10px;
+	padding-bottom: 10px;
+	border-bottom: medium double #e3e3e3;
+}
+
+.articleList .article a img {
+	float: right;
+	width: 80px;
+	height: 60px;
+	border: 0;
+	margin: 18px 5px;
+}
+
+.articleList .article dt a {
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.articleList .article dt a:hover {
+	text-decoration: underline;
+}
+
+.articleList .article dt a em {
+	font-style: normal;
+	color: #A00;
+}
+
+.articleList .article .status_0 {
+	padding-left: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 8px;
+	font-style: normal;
+	color: #F90;
+	background: url(/img/translate.gif) 0 -30px no-repeat;
+}
+
+.articleList .article .status_2 {
+	padding-left: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 8px;
+	font-style: normal;
+	color: #00BB4B;
+	background: url(/img/translate.gif) 0 0 no-repeat;
+}
+
+.articleList .article .status_0 em,.articleList .article .status_2 em {
+	font-style: normal;
+	color: #888;
+	margin-left: 10px;
+}
+
+.articleList .article .sub_title {
+	font-size: 12px;
+	color: #333;
+	margin-top: 5px;
+}
+
+.articleList .article .content {
+	font-size: 13px;
+	line-height: 24px;
+	height: auto;
+	overflow: hidden;
+	color: #333;
+}
+
+.articleList .pager {
+	margin: 0 10px;
+}
+
+.articleList .TagDetail {
+	margin: 10px 2px;
+	color: #666;
+	border: 2px solid #ccc;
+	padding: 5px;
+	background: #ffd;
+	font-size: 9pt;
+}
+
+.articleList .TagDetail img.project {
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin: 0 20px 10px 0;
+}
+
+#categoryMenu {
+	margin-bottom: 10px;
+	background: white;
+}
+
+#categoryMenu ul {
+	margin: 10px 0;
+}
+
+#categoryMenu li a {
+	display: block;
+	text-decoration: none;
+	height: 36px;
+	line-height: 36px;
+	font-size: 14px;
+	color: #3B3B3B;
+	padding: 0 15px;
+}
+
+#categoryMenu li a:hover {
+	background: #EEE;
+	color: #080;
+}
+
+#categoryMenu li a em {
+	float: right;
+	padding: 0 5px;
+	margin-top: 8px;
+	height: 20px;
+	line-height: 20px;
+	background: #EEE;
+	font-size: 12px;
+	font-style: normal;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+#categoryMenu li a:hover em {
+	background: #00BC00;
+	color: white;
+}
+
+#categoryMenu li.current,#categoryMenu li.current a:hover {
+	background: #3dae4f;
+	background: -moz-linear-gradient(#3dae4f, #0c701c);
+	background: -webkit-linear-gradient(#3dae4f, #0c701c);
+}
+
+#categoryMenu li.current a {
+	color: white;
+}
+
+#categoryMenu li.current a em {
+	color: white;
+	background: none;
+}
+
+.hotList,.TopUsers {
+	margin-bottom: 10px;
+	background: #FFF;
+}
+
+.hotList a {
+	text-decoration: none;
+}
+
+.hotList a:hover {
+	text-decoration: underline;
+}
+
+.hotList ul {
+	margin: 10px 0;
+}
+
+.hotList ul li {
+	height: 24px;
+	width: 278px;
+	padding: 0 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.hotList ul li a {
+	height: 24px;
+	line-height: 24px;
+	font-size: 10pt;
+}
+
+.hotList .dot {
+	height: 10px;
+	width: 10px;
+	font-size: 0;
+	margin-right: 5px;
+	overflow: hidden;
+	zoom: 1;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.hotList .dot1 {
+	background-color: #f00;
+}
+
+.hotList .dot2 {
+	background-color: #f90;
+}
+
+.hotList .dot3 {
+	background-color: #aed900;
+}
+
+.hotList .dot4 {
+	background-color: #2bd600;
+}
+
+.hotList .dot5 {
+	background-color: #00bb4b;
+}
+
+.hotList .dot6 {
+	background-color: #01bebe;
+}
+
+.hotList .dot7 {
+	background-color: #035bdf;
+}
+
+.hotList .dot8 {
+	background-color: #2200a8;
+}
+
+.hotList .dot9 {
+	background-color: #510066;
+}
+
+.hotList .dot10 {
+	background-color: #3f0030;
+}
+
+.TopUsers ul {
+	padding-left: 12px;
+}
+
+.TopUsers ul li {
+	text-align: center;
+	margin: 0 7px 10px 0;
+	float: left;
+	overflow: hidden;
+	font-size: 7pt;
+}
+
+.TopUsers ul {
+	margin-top: 10px;
+}
+
+.TopUsers ul li a {
+	text-decoration: none;
+}
+
+.TopUsers ul li img {
+	width: 64px;
+	height: 64px;
+	background: #fff;
+}
+
+.TopUsers ul li a:hover img {
+	
+}
+
+a.cmdbutton {
+	background: #5CC26F;
+	color: #fff;
+	text-decoration: none;
+	float: left;
+	margin: 0 10px;
+	border: 0px solid #000;
+	font-size: 16pt;
+	cursor: pointer;
+}
+
+a.cmdbutton:hover {
+	background-position: left -30px;
+}
+
+a.cmdbutton span {
+	color: #fff;
+	float: left;
+	margin: 6px;
+	padding: 0 10px;
+	height: 30px;
+	line-height: 30px;
+}
+
+a.cmdbutton.paying-translation {
+	width: 240px;
+	margin-top: 20px;
+	padding: 6px;
+	text-align: center;
+}
+
+.Article {
+	margin-top: 10px;
+}
+
+.Article .Top {
+	padding: 10px;
+	background: #EDEDED;
+	color: #666;
+}
+
+.Article .Top h1 {
+	padding-bottom: 5px;
+	font-size: 28px;
+	line-height: 36px;
+	font-weight: normal;
+	color: #333;
+}
+
+.Article .Top h1 em.none {
+	font-style: normal;
+	color: #F90;
+}
+
+.Article .Top h1 em.pending {
+	font-style: normal;
+	color: #00BB4B;
+}
+
+.Article .Top h3 {
+	margin: 2px 0;
+	font-size: 18px;
+	color: #393939;
+	font-weight: normal;
+}
+
+.Article .Top h3 a {
+	text-decoration: none;
+}
+
+.Article .Top .Tags a {
+	margin-left: 5px;
+	text-decoration: none;
+}
+
+.Article .Top .Tags a.tag {
+	background: #46A6D2;
+	color: white;
+	padding: 2px 5px;
+}
+
+.Article .Top .Tags a.tag:hover {
+	background-color: #3a7bd2;
+}
+
+.Article .Top .rec_user {
+	height: 22px;
+	line-height: 22px;
+}
+
+.Article .Top .rec_user a {
+	text-decoration: none;
+}
+
+.Article .Top .rec_user .share a {
+	width: 16px;
+	height: 16px;
+	text-decoration: none;
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.Article .Top .rec_user .share .sina {
+	background: url(/img/sina_weibo.png) no-repeat;
+}
+
+.Article .Top .rec_user .share .tencent {
+	background: url(/img/tencent_weibo.png) no-repeat;
+}
+
+.Article .Top .rec_user .options {
+	float: right;
+}
+
+.Article .Top .Vote {
+	float: right;
+	margin-right: 20px;
+	padding: 5px;
+	background: #005075;
+	color: #FFF;
+	width: 54px;
+	text-align: center;
+	display: block;
+}
+
+.Article .Top .Vote a {
+	font-size: 16pt;
+	color: #FFF;
+	display: block;
+	border-top: 1px solid #073f59;
+	text-decoration: none;
+}
+
+.Article .Top .Vote a:hover {
+	color: #ff0;
+}
+
+.Article .Top .Vote em {
+	font-size: 12pt;
+	font-style: normal;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #04608a;
+	display: block;
+}
+
+.Article .toolbar {
+	overflow: hidden;
+	padding: 5px 0 5px 5px;
+	color: #6A6A6A;
+	border-left: 1px solid #EDEDED;
+	border-right: 1px solid #EDEDED;
+}
+
+.Article .toolbar a {
+	text-decoration: none;
+}
+
+.Article .toolbar .label {
+	float: left;
+	width: 100px;
+}
+
+.Article .toolbar em {
+	color: #A3A3A3;
+	font-style: normal;
+	font-size: 12px;
+}
+
+.Article .toolbar a.t_user {
+	
+}
+
+.Article .toolbar .options {
+	float: right;
+	width: 260px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+.Article .toolbar .options a.selected {
+	color: #b90000;
+	font-weight: bold;
+}
+
+.Article .toolbar .contributers {
+	width: 610px;
+	float: left;
+}
+
+.Article .Tags {
+	line-height: 22px;
+}
+
+.Article .copyright {
+	background: #efe;
+	text-align: left;
+	margin: 20px 10px;
+	padding: 3px 0 3px 10px;
+	color: #333;
+	font-size: 10pt;
+	line-height: 22px;
+	border-left: 10px solid #CFC;
+}
+
+.Article .Body {
+	border: 1px solid #EDEDED;
+}
+
+.Article .Body .paragraph_eng {
+	background: #FFF;
+	padding: 10px 0;
+	border: 1px solid #F9F9F9;
+}
+
+.Article .Body .paragraph_eng .TextContent {
+	width: 750px;
+	padding: 0 10px;
+	font-size: 10pt;
+	line-height: 180%;
+	overflow: hidden;
+}
+
+.Article .Body .paragraph_eng .TextContent span {
+	margin: 0 2px;
+}
+
+.Article .Body .paragraph_eng .translaters {
+	width: 210px;
+	padding: 0 6px;
+}
+
+.Article .Body .translate_chs {
+	padding: 0;
+	border: 3px solid #F9F9F9;
+}
+
+.Article .Body .translate_chs .bdt10 {
+	border-top: medium double #E3E3E3;
+}
+
+.Article .Body .bd10 {
+	border: 1px solid #A00;
+}
+
+.Article .Body .paragraph_chs {
+	background: #FFF;
+	padding: 10px 0;
+}
+
+.Article .Body .paragraph_chs .TextContent {
+	width: 750px;
+	font-size: 10.5pt;
+	padding: 0 10px;
+	overflow: hidden;
+}
+
+.Article .Body .paragraph_chs .translater {
+	width: 210px;
+	padding: 0 6px;
+}
+
+.translaters h3 {
+	color: #686868;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 2px 0;
+}
+
+.translaters ul {
+	margin: 10px 0;
+}
+
+.translaters ul li {
+	text-align: center;
+	margin: 0 3px 5px 0px;
+	width: 45px;
+	height: 48px;
+	float: left;
+	overflow: hidden;
+	font-size: 7pt;
+}
+
+.translaters ul li a {
+	text-decoration: none;
+}
+
+.translaters ul li img {
+	width: 24px;
+	height: 24px;
+	border: 1px solid #ddd;
+	padding: 2px;
+	background: #fff;
+}
+
+.translaters ul li a:hover img {
+	border: 1px solid #40AA53;
+}
+
+a.TBUTTON {
+	text-decoration: none;
+	background: #4E867B;
+	border: none;
+	color: #FFF;
+	font-size: 18px;
+	padding: 4px 14px;
+	margin-right: 3px;
+}
+
+a.TBUTTON:hover {
+	background: #4f978a;
+}
+
+input.TBUTTON {
+	background: #4E867B;
+	border: none;
+	color: #FFF;
+	font-size: 18px;
+	padding: 4px 14px;
+	margin-right: 3px;
+	cursor: pointer;
+}
+
+input.TBUTTON:hover {
+	background: #4f978a;
+}
+
+.translater a {
+	text-decoration: none;
+}
+
+.translater a img {
+	float: left;
+	width: 46px;
+	height: 46px;
+	border: 1px solid #ddd;
+	padding: 2px;
+	margin-top: 5px;
+	background: #fff;
+}
+
+.translater .info {
+	float: left;
+	margin: 0 10px;
+	width: 126px;
+	height: 45px;
+}
+
+.translater .info h6 {
+	font-weight: normal;
+	font-size: 10pt;
+	color: #444;
+}
+
+.translater .info p {
+	color: #666;
+	margin: 5px 0;
+}
+
+.translater .info p em {
+	color: #A00;
+	margin: 0 2px;
+}
+
+.translater .vote {
+	height: 30px;
+	line-height: 30px;
+	margin-top: 20px;
+	color: #666;
+}
+
+.translater a.showOthers {
+	padding-left: 20px;
+	background: url(/img/translate.gif) 0 -218px no-repeat;
+	font-size: 10pt;
+	height: 30px;
+	line-height: 30px;
+}
+
+.translater a.closeOthers {
+	background: url(/img/translate.gif) 0 -250px no-repeat;
+}
+
+.EditTop {
+	width: 99%;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.Edit .Top {
+	margin-top: 10px;
+	padding: 10px;
+	background: #EDEDED;
+	color: #666;
+}
+
+.Edit .Top h1 {
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: normal;
+	color: #333;
+}
+
+.Edit .Top h3 {
+	margin: 2px 0;
+	font-size: 14px;
+	color: #393939;
+	font-weight: normal;
+}
+
+.Edit .Top h3 a {
+	text-decoration: none;
+}
+
+.Edit .Body {
+	margin-top: 10px;
+	padding: 10px;
+	background: #EDEDED;
+}
+
+.Edit .Body .p_content {
+	float: left;
+	width: 49%;
+	height: 650px;
+}
+
+.Edit .Body .p_content .title {
+	height: 28px;
+	line-height: 28px;
+	font-size: 12pt;
+	text-align: center;
+}
+
+.Edit .Body .p_content .title h3 {
+	color: #666;
+	font-weight: normal;
+}
+
+.Edit .Body .p_content .title a {
+	text-decoration: underline;
+}
+
+.Edit .Body .p_content .title .prev {
+	float: left;
+}
+
+.Edit .Body .p_content .title .next {
+	float: right;
+}
+
+.Edit .Body .p_content .TextContent {
+	height: 572px;
+	padding: 5px;
+	border: 1px solid #CCC;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: #F6F6F6;
+	font-size: 10pt;
+}
+
+.Edit .Body .p_editor {
+	float: right;
+	width: 49.5%;
+	height: 650px;
+}
+
+.Edit .Body .p_toolbar {
+	float: left;
+	height: 650px;
+	line-height: 650px;
+	text-align: center;
+	width: 1.3%;
+}
+
+.Edit .Body .p_toolbar a {
+	text-decoration: none;
+	width: 100%;
+	background: #4E867B;
+	color: white;
+	font-size: 8pt;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.Edit .action {
+	margin-top: 20px;
+	float: right;
+}
+
+.Bottom {
+	margin: 20px 0;
+}
+
+.Bottom .comments {
+	float: left;
+	width: 680px;
+}
+
+.comments h2 {
+	font-size: 12pt;
+	border-bottom: medium double #E3E3E3;
+	margin: 5px;
+	padding: 0 0 3px 5px;
+}
+
+.comments h2 span {
+	margin-left: 10px;
+	color: #444;
+	font-size: 10pt;
+	font-weight: normal;
+}
+
+.comments h2 em.reply_count {
+	font-style: normal;
+	color: #A00;
+}
+
+.comments h2 .more {
+	float: right;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #666;
+}
+
+.comments .comment {
+	margin: 5px 0 15px 0;
+	padding: 5px 0 5px 5px;
+	border-bottom: 1px dashed #ddd;
+}
+
+.comments .comment .user {
+	float: left;
+	width: 40px;
+	margin: 0 12px 0 0;
+	font-size: 9pt;
+	color: #666;
+}
+
+.comments .comment .user img {
+	width: 32px;
+	height: 32px;
+	margin: 3px 0 0 0;
+}
+
+.comments .comment .body {
+	float: left;
+	width: 620px;
+}
+
+.comments .comment .body .time {
+	float: left;
+	width: 380px;
+	font-size: 9pt;
+	color: #666;
+}
+
+.comments .comment .body .time a {
+	color: #999;
+}
+
+.comments .comment .body .time a:hover {
+	background: #666;
+	color: #fff;
+}
+
+.comments .comment .body .opts {
+	float: right;
+	width: 190px;
+	font-size: 9pt;
+	text-align: right;
+}
+
+.comments .comment .body .opts a {
+	color: #999;
+	padding: 0 2px;
+}
+
+.comments .comment .body .opts a:hover {
+	background: #666;
+	color: #fff;
+}
+
+.comments .comment .body .detail {
+	margin: 10px 0;
+	font-size: 10.5pt;
+}
+
+.comments .comment .body .detail div.ref {
+	border: 1px solid #999;
+	margin: 0 0 10px 0;
+	padding: 3px;
+	font-size: 9pt;
+	color: #333;
+	background: #ffe;
+}
+
+.comments .comment .body .detail div.ref h4 {
+	margin: 0;
+	padding: 2px 0px 3px 0px;
+	color: #1E50A2;
+	font-size: 9pt;
+	font-weight: normal;
+}
+
+.comments .comment .body .detail div.ref .ref_body {
+	margin: 0;
+	padding: 2px;
+	line-height: 20px;
+	color: #666;
+	font-size: 9pt;
+	color: #333;
+}
+
+.comments .comment .body .detail div.ref .ref_body img {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
+.comments .pager {
+	margin-left: 60px;
+}
+
+.commentForm {
+	margin: 20px 0;
+}
+
+.commentForm .user {
+	float: left;
+	width: 60px;
+}
+
+.commentForm .user img {
+	width: 32px;
+	height: 32px;
+	margin: 0 0 0 5px;
+}
+
+.commentForm form {
+	float: left;
+}
+
+.commentForm form textarea {
+	border: 1px solid #999;
+}
+
+.commentForm form input.SUBMIT {
+	font-size: 18px;
+	padding: 4px 10px;
+	margin: 10px 0;
+	float: right;
+}
+
+.myList table {
+	margin: 10px;
+	font-size: 10pt;
+	table-layout: fixed;
+}
+
+.myList table td {
+	vertical-align: top;
+	overflow: hidden;
+}
+
+.myList a {
+	text-decoration: none;
+}
+
+.myList .title {
+	
+}
+
+.myList .title a {
+	text-decoration: none;
+	color: #46B;
+}
+
+.myList .title span {
+	font-size: 9pt;
+	color: #999;
+}
+
+.myList .vote {
+	width: 50px;
+	font-size: 9pt;
+	color: #999;
+}
+
+.myList .date {
+	width: 70px;
+	font-size: 9pt;
+	color: #999;
+}
+
+.myList .opts {
+	width: 100px;
+	text-align: right;
+	color: #999;
+}
+
+.myList .pager {
+	margin: 0 10px 10px 10px;
+}
+
+.cmptable {
+	table-layout: fixed;
+	background: #EDEDED;
+}
+
+.cmptable td.eng {
+	background-color: #FFFFFF;
+	padding: 5px;
+	overflow: hidden;
+	font-size: 10pt;
+	line-height: 1.5;
+}
+
+.cmptable td.chs {
+	background-color: #FFFFFF;
+	padding: 5px;
+	overflow: hidden;
+	font-size: 10.5pt;
+	line-height: 1.5;
+}
+
+.cmptable td p {
+	margin: 10px 0;
+}
+
+.cmptable td .infoicon {
+	float: right;
+	background: #EBEBEB;
+	height: 20px;
+	padding: 0 6px;
+	line-height: 20px;
+	z-index: 999;
+	text-align: center;
+	font-size: 11px;
+	color: #060;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.cmptable td .infoicon img {
+	margin-left: 5px;
+	vertical-align: middle;
+	padding-top: 2px;
+}
+
+.cmptable td .infocard {
+	position: absolute;
+	top: 30px;
+	right: 0px;
+	padding: 5px 10px;
+	font-size: 10pt;
+	border-radius: 8px;
+	z-index: 100;
+	background: #EDEDED;
+	display: none;
+}
+
+.cmptable td .infocard h1 {
+	height: 20px;
+	line-height: 20px;
+	font-size: 15px;
+	color: #666;
+	margin-bottom: 5px;
+	border-bottom: 1px dotted #CCC;
+}
+
+.cmptable td .infocard h1 a.close {
+	float: right;
+	font-size: 6pt;
+}
+
+.cmptable td .infocard h1 a.close img {
+	width: 15px;
+	height: 15px;
+}
+
+.cmptable td .infocard a {
+	text-decoration: none;
+}
+
+.cmptable td .infocard a img {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+.cmptable td .infocard .text {
+	float: left;
+	margin-left: 10px;
+}
+
+.cmptable td .infocard h6 {
+	font-weight: normal;
+	font-size: 10pt;
+	color: #444;
+}
+
+.cmptable td .infocard p {
+	color: #666;
+	margin: 0;
+	padding: 0;
+}
+
+.cmptable td .infocard p em {
+	color: #A00;
+	margin: 0 2px;
+}
+
+.cmptable td  ol {
+	list-style-type: decimal;
+	margin: 0.5em 0 0.5em 1.5em;
+	line-height: 1.5em;
+}
+
+.cmptable td  ul {
+	list-style-type: disc;
+	margin: 0.5em 0 0.5em 1.5em;
+	line-height: 1.5em;
+}
+
+.QuestionHeader {
+	height: 34px;
+	border-bottom: 1px solid #40AA53;
+	margin: 0 0 15px 0;
+}
+
+.QuestionHeader #portrait {
+	float: left;
+	width: 35px;
+}
+
+.QuestionHeader #portrait img {
+	width: 24px;
+	height: 24px;
+}
+
+.QuestionHeader #switcher {
+	float: left;
+	margin: 5px 0 0 2px;
+}
+
+.QuestionHeader #switcher h1 {
+	font-size: 12pt;
+	float: left;
+	color: #666;
+}
+
+.QuestionHeader #switcher h1 a {
+	text-decoration: none;
+}
+
+.QuestionHeader #switcher h1 em {
+	font-style: normal;
+	color: #40AA53;
+}
+
+.QATip {
+	margin: 40px 0 50px 100px;
+}
+
+.QATip h1 {
+	font-size: 13.5pt;
+}
+
+.QATip h1 em {
+	color: #A00;
+	font-style: normal;
+}
+
+.QATip .text {
+	margin: 20px 0 20px 20px;
+	font-size: 11pt;
+}
+
+.QATip .text p.hint {
+	color: #A00;
+	font-size: 10pt;
+	margin-top: 10px;
+}
+
+.QATip .text ul {
+	margin: 10px 0 0 0;
+	list-style-type: disc;
+	list-style-position: inside;
+	line-height: 24px;
+}
+
+.QATip .btn_view {
+	margin-left: 20px;
+}
+
+.AllTags {
+	padding-bottom: 10px;
+}
+
+.AllTags ul.tagList {
+	margin: 10px;
+}
+
+.AllTags ul.tagList li {
+	float: left;
+	width: 24%;
+}
+
+.AllTags ul.tagList li .stat {
+	color: #666;
+	font-size: 8pt;
+	-webkit-text-size-adjust: none;
+}
+
+.AllTags a.tag,.PopularTags a.tag {
+	background-color: #E0EAF1;
+	border-bottom: 1px solid #3E6D8E;
+	border-right: 1px solid #7F9FB6;
+	color: #3E6D8E;
+	font-size: 8pt;
+	-webkit-text-size-adjust: none;
+	line-height: 2.4;
+	margin: 2px 2px 2px 0;
+	padding: 2px 4px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.AllTags a.tag em,.PopularTags a.tag em {
+	font-style: normal;
+	color: #666;
+	font-size: 7pt;
+	margin-left: 2px;
+}
+
+.AllTags a.tag:hover,.PopularTags a.tag:hover {
+	background-color: #3E6D8E;
+	color: #fff;
+}
+
+.AllTags a.tag:hover em,.PopularTags a.tag:hover em {
+	color: #fff;
+}
+
+.AllTags .pager {
+	margin: 0 10px;
+}</style>
+<div class='Article'>
+	<div class='Top'>
+		<div class='Vote'><em id='vote_count'>51</em><a href='javascript:vote_article(1359);'>顶</a></div>
+		<h1>
+            对 Android 开发者有益的 40 条优化建议
+                    </h1>
+		<h3>英文原文：<a href='http://opensignal.com/blog/2013/07/30/40-developer-tips-for-android-optimization/' target='_blank'>40 Developer Tips for Android Optimization</a></h3>
+        <div class='Tags'>
+		<strong>标签：</strong>
+						<a href='http://www.oschina.net/translate/tag/android-os' class='tag project image' data-id='9389' title='开源手机操作系统 Android'>Android</a> 		        		</div>
+		<div class='rec_user'>
+            <span class="options">
+                                <style>
+#TagsSwitcher{color:#A00;}
+#RecTags,#MyTags{margin:5px 0;}
+#RecTags a.tag{line-height:24px;}
+#favor_form p:first-child{margin:5px 0;}
+#favor_form{width:200px;}
+#favor_form p {color:#666;}
+#favor_form form{min-height: 85px;width:200px;}
+#favor_form form ._favor_input{display:block;margin:2px 0;width:199px;}
+#favor_form form ._favor_button{float:left;padding:2px 5px;}
+.favor_ok {text-align:center;font-size:10.5pt;width:199px;height:60px;margin-top:10px;}
+#TagsSwitcher{cursor:pointer;float:right;margin-top:10px;}
+#MyTags{display:none;width:199px;}
+#MyTags a.tag {float:left; background-color: #E0EAF1;border-bottom: 1px solid #3E6D8E;border-right: 1px solid #7F9FB6;color: #3E6D8E;font-size: 8pt;line-height: 16px;margin: 2px 2px 2px 0;padding: 2px 4px;text-decoration: none;white-space: nowrap;}
+#MyTags a.tag:hover{background-color: #3E6D8E;color: #FFF;}
+</style>
+<script type='text/javascript'>
+var favor_add = "<a href='javascript:add_to_favor(1359,7)' id='favor_trigger' title='添加到收藏夹'>我要收藏</a>";
+var favor_del = "<a href='javascript:delete_favor(1359,7)' id='favor_trigger' style='color:#a00;'>取消收藏</a>";
+var favor_ok = "<p class='favor_ok'>已成功添加到收藏夹<br/><br/> <a href='null/favorites?type=7'>我的收藏夹</a> | <a href='javascript:close_favor()'>关闭</a></p>";
+function delete_favor(obi_id, obj_type){
+	$('#attention_it').html(favor_add);
+	$("#p_attention_count").load("/action/favorite/cancel?type="+obj_type+"&id="+obi_id, {user: ''});
+}
+function add_to_favor(obj_id, obj_type){
+	if(confirm('必须登录后才能收藏，是否现在登录？')){
+		location.href="http://www.oschina.net/home/login?goto_page="+encodeURIComponent(location.href);
+	}
+}
+function close_favor(elem_id){
+    $('#favor_trigger').poshytip('destroy');
+}
+function setTag(tv){
+	var t = $("._favor_input");
+	var value = t.val();
+	var tags = value.replace(/，/ig,',').split(',');
+	var exist = false;
+	value = $.map(tags,function(v,i){
+		if($.trim(tv) == $.trim(v)){
+			exist = true;
+			return undefined;
+		}
+		return v;
+	}).join(',');
+	if(exist){
+		t.val(value);
+		return;
+	}
+	if(value!="")
+		t.val(value+","+tv);
+	else
+		t.val(tv)
+}
+function ltrim(str){
+    var whitespace = new String(" \t\n\r");
+    var s = new String(str);
+    if (whitespace.indexOf(s.charAt(0)) != -1){
+        var j=0, i = s.length;
+        while (j < i && whitespace.indexOf(s.charAt(j)) != -1){
+            j++;
+        }
+        s = s.substring(j, i);
+    }
+    return s;
+}
+
+function rtrim(str){
+    var whitespace = new String(" \t\n\r");
+    var s = new String(str);
+    if (whitespace.indexOf(s.charAt(s.length-1)) != -1){
+        var i = s.length - 1;
+        while (i >= 0 && whitespace.indexOf(s.charAt(i)) != -1){
+            i--;
+        }
+        s = s.substring(0, i+1);
+    }
+    return s;
+}
+ 
+function trim(str){
+    return rtrim(ltrim(str));
+}
+</script>
+<em id='p_attention_count'>0</em>人收藏此文章,
+<span id='attention_it'>
+	<script type='text/javascript'>document.write(favor_add);</script>
+</span>
+<script type="text/javascript">
+	$(document).ready(function(){
+    	$.ajax({
+    		url:"/action/favorite/attentionUsersCount",
+    		type:"get",
+    		data:"id="+1359+"&type="+7,
+    		success:function(msg){
+				$("#p_attention_count").html(msg);
+    		}
+    	});
+	});
+</script>            </span>
+			<a href='http://my.oschina.net/fengcunhan' target='_blank'>fneg</a> 推荐于 1年前 (共 19 段, 翻译完成于 09-15) (<a href='#comments'>38评</a>)
+            <span class="share">
+                                <a class="sina" title="分享到新浪微博"  href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=858381728',u=z||d.location,p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','','对 Android 开发者有益的 40 条优化建议 - 技术翻译: 下面是开始Android编程的好方法：  找一些与你想做事情类似的代码  调整它，尝试让它做你像做的事情  经历问题  使用StackOverflow解决问题 对每个你像添加的特征重...','','utf-8'));"></a><a class="tencent" title="分享到腾讯微博"  href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?url='+encodeURIComponent(document.location)+'&amp;appkey=96f54f97c4de46e393c4835a266207f4&amp;site=&amp;title='+encodeURIComponent(document.title)+encodeURIComponent(': 下面是开始Android编程的好方法：  找一些与你想做事情类似的代码  调整它，尝试让它做你像做的事情  经历问题  使用StackOverflow解决问题 对每个你像添加的特征重...'),'', 'width=450, height=400, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');}())"></a>
+            </span>
+		</div>
+		<div class='clear'></div>
+	</div>
+		<div class='toolbar'>
+				<span class='label'>参与翻译<em>(5人)</em>：</span>
+        <div class="contributers"><a href='http://my.oschina.net/yale8848' target='_blank' class='t_user'>yale8848</a>, <a href='http://my.oschina.net/Garfielt' target='_blank' class='t_user'>Garfielt</a>, <a href='http://my.oschina.net/u/148160' target='_blank' class='t_user'>寒酒残香</a>, <a href='http://my.oschina.net/super0555' target='_blank' class='t_user'>super0555</a>, <a href='http://my.oschina.net/dasunsy' target='_blank' class='t_user'>dasunsy</a></div>		
+				<div class='options'>
+                    <a href='http://www.oschina.net/translate/40-developer-tips-for-android-optimization' class='selected'>仅中文</a> | <a href='http://www.oschina.net/translate/40-developer-tips-for-android-optimization?cmp' target="_blank">中英文对照</a> | <a href='http://www.oschina.net/translate/40-developer-tips-for-android-optimization?lang=eng'>仅英文</a> | <a href="?print" target="_blank">打印此文章</a>
+                </div>
+	</div>
+			<div class='Body' style="position:relative;">
+								                    <div id='translate_23637' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> 下面是开始Android编程的好方法： </p> 
+<ul> 
+ <li> &nbsp;找一些与你想做事情类似的代码 </li> 
+ <li> &nbsp;调整它，尝试让它做你像做的事情 </li> 
+ <li> &nbsp;经历问题 </li> 
+ <li> &nbsp;使用StackOverflow解决问题 </li> 
+</ul> 
+<p> 对每个你像添加的特征重复上述过程。这种方法能够激励你，因为你在保持不断迭代，不经意中你学到了很多。然而，当你发布应用时你还要做一些更深入的事情。 </p></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/Garfielt' title='Garfielt' target='_blank'><img src="http://static.oschina.net/uploads/user/73/147631_50.jpg?t=1370742483000" align="absmiddle" alt="Garfielt" title="Garfielt" class="SmallPortrait" user="147631"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/Garfielt' target='_blank'>Garfielt</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23660'>2</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23660);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23638' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> 从一些可正常工作的代码到一个可怕的应用程序是一个巨大的跳跃，相比iOS平台Android更是如此 。当在iOS上发布应用时只是在一个设备上跳跃–你的手机–对很多设备而言都很相似–同样大小的屏幕，都有很好的硬件，95%上运行相同版本的操作系统。在Android应用中你不会遇到这种情况。<br> <br> 你的程序必须能够处理一切：从屏幕，处理器，定制的操作系统，API层级以及任何其他的特定设备。<br> <br> 这是我对使Android应用舒服起来的个人建议。 </p></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/Garfielt' title='Garfielt' target='_blank'><img src="http://static.oschina.net/uploads/user/73/147631_50.jpg?t=1370742483000" align="absmiddle" alt="Garfielt" title="Garfielt" class="SmallPortrait" user="147631"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/Garfielt' target='_blank'>Garfielt</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23661'>1</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23661);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23639' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><h2 id="content_h2_3_5"> 目标屏幕尺寸及解决方法 </h2> 
+<p> 在Android世界里目前有超过100种的不同屏幕尺寸，但解决方法也很丰富。为使你的应用适应不同的屏幕配置有两件事情你需要确定： </p> 
+<ol> 
+ <li> 你对不同的屏幕尺寸有一个好的布局和结构 </li> 
+ <li> 你的图像在不同分辨率下工作良好 </li> 
+</ol> 这些都是独立的任务，你可能有一个超级的tablet布局，但上面的图形看起来很糟糕。我们会依次讨论他们。</div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/Garfielt' title='Garfielt' target='_blank'><img src="http://static.oschina.net/uploads/user/73/147631_50.jpg?t=1370742483000" align="absmiddle" alt="Garfielt" title="Garfielt" class="SmallPortrait" user="147631"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/Garfielt' target='_blank'>Garfielt</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23662'>2</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23662);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23640' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;"  rowspan="2"><div class='TextContent'><h2 id="content_h2_4_5"> 为不同的屏幕而设计 </h2> 
+<h3 id="content_h3_4_6"> 1.通常会用ScrollView 和 ListView 轻松搞定 </h3> 
+<p> 当我们有一系列不同尺寸的大屏手机时，它们之间最大的不同就是屏幕的高度。因此ScrollView和ListView通常可是有效的工作，虽然有时它们并不能完全覆盖全部屏幕。在OpenSignal中的Dashboard标签下我们可以看到所有部件一气呵成，不存在滑动、对于许多高级类型标签中，滑动展示并不见得是一件坏事。如果你能够为你所有的设计匹配到各种屏幕上面去，那么最好不过。否则，这两个控件会让你用最小的开发代价来保证你的软件在大多数屏幕上正常展示。 </p> 
+<p> <a href="http://opensignal.com/blog/wp-content/uploads/2013/07/opensignal_dashboard1.jpg" rel="nofollow"><img width="192" height="342" alt="opensignal_dashboard1" src="http://static.oschina.net/uploads/img/201309/09093901_I6Hf.jpg"></a> </p> 
+<h4 id="content_h4_4_11"> Dashboard style 的设计不需要scroll </h4></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/u/148160' title='寒酒残香' target='_blank'><img src="http://static.oschina.net/uploads/user/74/148160_50.jpg?t=1378718597000" align="absmiddle" alt="寒酒残香" title="寒酒残香" class="SmallPortrait" user="148160"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/u/148160' target='_blank'>寒酒残香</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23688'>2</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23688);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+        <tr>
+        <td class="translater" valign="bottom">
+                        <a id='btn_show_other_23640' class="showOthers" href='javascript:show_other(23640,23688);'>其它翻译版本(1)</a>
+        </td>
+    </tr>
+    </table>
+<div id='other_translate_23640' style='display:none;'>
+	<div style='text-align:center;margin:10px 0;'><img src='/img/loading.gif?t=1377425910000' alt='loading...' /><strong>正在加载...</strong></div>
+</div>
+</div>
+        		                    <div id='translate_23641' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><b>2: 使用文件夹.&nbsp;</b>Android 的资源文件夹结构非常强大, 它允许开发者将不同的图片、字符串、布局文件、外形、颜色这些资源，在api、代码、屏幕尺寸等部分. 下面是一个例子，展示了在资源文件夹下你可以怎样做: 
+<p> <br> </p> 
+<p> <a href="http://opensignal.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-29-at-10.32.18.png" rel="nofollow"><img alt="Screen Shot 2013-07-29 at 10.32.18" src="http://static.oschina.net/uploads/img/201309/09093901_Iy35.png" height="206" width="200"></a> </p> 
+<p> 在 values-small 文件夹中存放了一个 bools.xml 文件, 文件中有如下几行代码: </p> 
+<pre class="brush:xml; toolbar: true; auto-links: false;">&lt;resources&gt;
+&lt;bool name="small_screen"&gt;true&lt;/bool&gt;
+&lt;/resources&gt;</pre> 
+<p></p> 
+<p> 在代码中我可这样引用: </p> 
+<pre class="brush:java; toolbar: true; auto-links: false;">if(getResources().getBoolean(R.bool.small_screen)){
+getSupportActionBar().hide();
+}</pre> 
+<p></p> 
+<p> 在小尺寸设备中boolean值将置为true 我此时将因此ActionBar来节省空间.&nbsp;这段代码正是非凡的ActionBarSherlock 扩展库中的一部分,稍后再详细介绍. 在values-sw360dp文件夹中，存放对应屏幕宽于360dp的资源文件。与上面相同的位置，有如下代码 </p> 
+<pre class="brush:xml; toolbar: true; auto-links: false;">&lt;resources&gt;
+&lt;bool name="small_screen"&gt;false&lt;/bool&gt;
+&lt;/resources&gt;</pre> 
+<p></p> 
+<p> 对于大屏幕而言，ActionBar就置为了显示状态. </p> 
+<p> 我不需要将 bools.xml 文件放入 values-sw400dp文件夹中, 因为操作系统会自动按相应路径搜索. 例如一个设备宽 600dp (600/160=3.75 英寸, 这就是我们通常所说的7片装) 操作系统会在<span>values-sw600dp 和其包含的的文件夹中</span>搜索 bools.xml 文件, 若没有找到则搜索 values-sw400dp 文件夹,在搜索 values-sw360dp 文件夹以此类推. </p> 
+<p> <b> </b> </p></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/u/148160' title='寒酒残香' target='_blank'><img src="http://static.oschina.net/uploads/user/74/148160_50.jpg?t=1378718597000" align="absmiddle" alt="寒酒残香" title="寒酒残香" class="SmallPortrait" user="148160"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/u/148160' target='_blank'>寒酒残香</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23770'>1</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23770);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23642' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><strong>建议3:160dp = 1英寸。320 dp = 2英寸。dp = dip</strong> 
+<br> 
+<strong>建议4:你可以用这些目录结构技巧来应付所有资源类型</strong>，比如你的XML布局用指定的系统目录名称 
+<br> 
+<p> 来解决这个问题，如：layout-sw360dp目录可以匹配目标宽是360dp的机器。如果你也要支持横竖屏布局切换的话，可以用如下目录： </p> 
+<em>layout-sw360dp-land</em> 
+<br> 
+<p> <em>layout-sw360dp-port</em> </p> 
+<p> 别急，你有一半的用户是说阿拉伯语的？那就将布局名称改为下面的样子吧： </p> 
+<p> <em>layout-sw360dp-land</em> </p> 
+<p> <em>layout-sw360dp-port</em> </p> 
+<p> <em>layout-sw360dp-land-ar</em> </p> 
+<p> <em>layout-sw360dp-port-ar</em> </p> 前两个可以适用于所有语言，-ar代表阿拉伯语。 
+<br> 
+<strong>建议5：资源规则简介：</strong> 
+<br> XXX //例子：没有添加目录名：默认-适用于Nexus One，Droid 2,S2 
+<br> XXX-sw360dp // 比较大的手机 – Galaxy Nexus, S3, S4 
+<br> XXX-sw600dp // 7〃 平板 
+<br> XXX-sw720dp // 10” 平板 
+<br> 
+<br> 在Kindle设备有些不同，如下： 
+<br> XXX-large-mdpi // kindle fire 7〃 
+<br> XXX-large-hdpi // kindle fire 7〃 HD 
+<br></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23913'>1</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23913);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23643' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><span style="font-size:10pt;line-height:1.5;"><strong>建议6：如果你不想裁剪所有的布局文件，你可以用dimens.xml文件。</strong>你要是留心我上面的文章，你就会注意到在我的values目录里有很多dimens.xml，这样是因为我更喜欢在一个layout.xml里设置值，在每一个布局文件里我喜欢这样做：</span> 
+<pre class="brush:xml; toolbar: true; auto-links: false;">&lt;ImageView
+android:layout_centerHorizontal="true"
+android:layout_marginTop="@dimen/small_margin"
+android:layout_width="@dimen/dashBoardWidth"
+android:layout_height="@dimen/dashBoardHeight"
+android:id="@+id/dashboard"/&gt;
+
+small_margin是在dimen.xml文件里定义的：
+
+&lt;resources&gt;
+
+&lt;dimen name="small_margin"&gt;4dp&lt;/dimen&gt;
+&lt;/resources&gt; </pre> 这个4dp变量在所有dimen文件里。我有个Excel文件，里面创建了所有不同的基于不同因素所需的尺寸定义。也许你会问：为什么不让android OS来处理所有尺寸的问题？为什么不呢，为什么不用一个values目录和一个布局目录来代替所有写死的数值呢？那当然是可以的，如果设置得当，都会得到所有的尺寸，但是对于有些元素看起来就不是那么好计算尺寸了。 
+<br></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23922'>1</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23922);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23644' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议7:让空白空间大于图像空间。让图像空间大于按钮的大小。</strong>如果将按钮，多选框，切换控件放大后是很丑陋的。一个100dip(0.63")大小的按钮是不想在平板上显示为原来两倍宽度200dip(1.25")的.原因是屏幕变大了，这不是说平板是给巨人用的。我们可以这样做，在按钮增加的空间和图片扩展的空间里添加空白。 </p> 
+<strong>建议8:用GraphicalLayout工具快速预览。</strong>GraphicalLayout是WYSIWG XML编辑器。我喜欢直接编写元素-而不是拖，丢弃的可见编程方式，但在添加一些元素之后，可以在GraphicalLayout的下拉选择菜单里选择不同屏幕尺寸进行测试。 
+<br> 
+<br> 
+<img src="http://static.oschina.net/uploads/img/201309/09093902_07sq.jpg" alt=""> 
+<br> 
+<p> <em>这里有很多选项供你选择。</em> </p> 
+<h2 id="content_h2_8_14"> 图片缩放 </h2></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23957'>1</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23957);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23645' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议9:不要把所有的图片都缩放了。</strong>用布局文件来适应不同屏幕尺寸的方法只是成功的一半，布局里的元素(如：图片)也要能在高分辨率的屏幕下良好工作。在概念上比较简单的方式就是创建一套完整的图片目录并将它们与很多drawable目录匹配起来。 </p> drawable-sw600dp-ldpi 
+<br> drawable-sw600dp-mdpi 
+<br> drawable-sw600dp-hdpi 
+<br> drawable-sw600dp-xhdpi 
+<br> drawable-sw600dp-xxhdpi 
+<br> ...其它的类似。 
+<br> 
+<br> 不要这样做： 
+<br> 你不要太尽信书了。 
+<br> 一般来说有drawble-ldpi, drawable-hdpi等目录就足够了，不需要将所有的情况都加上。 
+<br></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23958'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23958);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23646' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议10:避免使用位图(jpg,png)。</strong>对于一些图标来说，用位图是个不错的选择，因为它们使用简单。但是如果可以避免使用位图，你可以节省很多空间。但用不同的方法也可以达到很好的结果。 </p> 
+<p> <strong>建议11:用XML绘图。</strong>位图都可以用XML<span>绘图</span>来代替的。XML<span>绘图不是万能的，但是它的方便性还是使我感到惊讶。<a href="http://developer.android.com/guide/topics/resources/drawable-resource.html" target="_blank" rel="nofollow">Android开发文档</a>中有详细的介绍，这里有个简单的例子：</span> </p> 
+<p> <span> </span></p> 
+<pre class="brush:xml; toolbar: true; auto-links: false;">&lt;shape
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:shape="rectangle" &gt;
+&lt;corners
+android:bottomRightRadius="14dp"
+android:bottomLeftRadius="14dp"
+android:topLeftRadius="14dp"
+android:topRightRadius="14dp"/&gt;
+&lt;gradient
+android:startColor="@color/off_white"
+android:endColor="@color/pale_yellow"
+android:angle="270"
+android:type="linear"/&gt;
+&lt;stroke
+android:width="4dp"
+android:color="@color/osm_darkerblue"/&gt;
+&lt;/shape&gt;</pre> 这里是定义了一个圆角矩形，一个有渐变的边(深蓝)。你可以在布局文件的任何地方来引用，而且它可以适应于任何屏幕。用它可以做出理想的按钮。</div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23983'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23983);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23647' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议12:用更多的XML绘图。</strong>再来介绍一个用XML绘图制作出能更加让你兴奋的例子，下面的雷达背景看起来是不是更加的复杂： </p> 
+<p> <img src="http://static.oschina.net/uploads/img/201309/09093903_WvcB.png" width="240" height="427" alt=""> </p> 
+<p> <em>不用位图对你的UI是没有坏处的(除过图标)。</em> </p> 
+<p> <strong>建议13:仍然用更多的XML绘图(如果必须，就用位图)。</strong>那我们怎样为天气信号构建一个超酷的图标-让灯泡动态的依据光的强度来进行自动填充，以及怎么点击指针后让其旋转呢？这里我们用位图和XML结合起来做个例子： </p> 
+<p> <img src="http://static.oschina.net/uploads/img/201309/09093905_D7MA.jpg" width="253" height="450" alt=""> </p> 
+<p> 灯泡我们用PNG图：<span style="font-family:Verdana, sans-serif, 宋体;line-height:21px;background-color:#F6F6F6;">icon_magnitude_min(一个空的灯泡)和<span style="font-family:Verdana, sans-serif, 宋体;line-height:21px;background-color:#F6F6F6;">icon_magnitude_max(充满光的灯泡)，然后我们动态的裁剪后者。</span>为了实现这个目标我是这样做的：</span> </p> 
+<p> <span style="font-family:Verdana, sans-serif, 宋体;line-height:21px;background-color:#F6F6F6;"> </span></p> 
+<pre class="brush:xml; toolbar: true; auto-links: false;">&lt;layer-list xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+&lt;item
+android:drawable="@drawable/icon_magnitude_min"
+/&gt;
+&lt;item &gt;
+&lt;clip
+android:clipOrientation="vertical"
+android:drawable="@drawable/icon_magnitude_max"
+android:gravity="top"
+/&gt;
+&lt;/item&gt;
+&lt;/layer-list&gt;</pre> 在java程序中我将得到回形针的引用，然后可以用它来控制光的强度。</div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23984'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23984);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23648' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议14: 为什么要用9-patch (当你可以用XML drawables的时候)?&nbsp;</strong>Android具有使用9-patches 来定义drawables的选择，有些教程阐述了怎样用它们来做一个按钮，这样可以在伸展的时候保持几个角不变 (并且避免了像素处理)。如果你已经知道怎样使用9-patches，可能是从web设计中学会的，那么它们或许值得一用。如果你对9-patches并不熟悉，我建议你维持原样。如果你想适应什么东西——例如拐角的圆弧或者颜色，创建9个小块要比创建位图更多被涉及，这就像回到了图像编辑器的时代。许多用9-patches获得的效果也可以通过XML获得。 </p></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/super0555' title='super0555' target='_blank'><img src="http://static.oschina.net/uploads/user/497/995742_50.jpg?t=1368144691000" align="absmiddle" alt="super0555" title="super0555" class="SmallPortrait" user="995742"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/super0555' target='_blank'>super0555</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23970'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23970);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23649' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议15: 通过覆盖onDraw()创建自定义views.</strong> 有些事情XML并不十分在行，我们在OpenSignal和WeatherSignal中画过许多图像，为此有许多的库，但是我们要为自定义图像自己编写代码。这很有趣。或许你永远也不需要做这个，但为了使图像高度动态并自定义，这经常是唯一可行的办法。 </p> 
+<p> <strong>建议16:在不能使用XML的地方使用SVG.</strong> 有时候覆盖onDraw()并勤勤恳恳的为自定义view编写代码画出需要的线条与弧线是过于技术化了。毕竟有一种<span>矢</span>量图像语言，它称作…Scalable Vector Graphics（<span>可扩展矢量图形</span>）。它也是史上最酷的Android应用之一—Androidify的动力来源。事实上他们创建这个库就是为了那款应用，他们将它发布在这里：<a href="https://code.google.com/p/svg-android/" rel="nofollow">SVG for Android</a>&nbsp; 。这也就是我们在OpenSignal中画仪表盘所用到的。 </p> 
+<strong><strong>建议17: 对SVG文件<strong><strong>GZip压缩</strong></strong>.</strong> </strong> 
+<span></span> 
+<span></span>将它们变得更小它们就会处理的更快。 
+<br> 
+<br> 
+<p> <strong><strong><strong><strong>建议</strong></strong>18: SVG库并不是支持一切.</strong> </strong>在一些特定的alpha通道中似乎不能正常工作，你甚至不得不在代码中将它们剔除。 </p></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/super0555' title='super0555' target='_blank'><img src="http://static.oschina.net/uploads/user/497/995742_50.jpg?t=1368144691000" align="absmiddle" alt="super0555" title="super0555" class="SmallPortrait" user="995742"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/super0555' target='_blank'>super0555</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23971'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23971);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23650' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><h2 id="content_h2_14_5"> <strong>达到在android所有版本里表示展现一致的目标</strong> </h2> 
+<p> <b>建议19：在一些android系统里（如<strong>TouchWhizz/HTC Sense/MotoBlur等等</strong>），默认的buttons和其他UI组件会跟原生系统里的看起来差别很大。</b>我希望这不是真的，但事实却是如此。 </p> 
+<p> <b>建议20：自定义你的UI组件。</b>为了确定你的app在所有的设备里看起来是一致的，你将需要自定义所有的东西。这其实没有你想象中那么难，只要你做到了，你将能更加好地把握到你的app的展示外观。 </p> 
+<p> <b>建议21：Selectors是创建buttons的利器。</b>我们在上面提到了如何在XML里定义button的背景，但是你将如何创建一个当按下去会改变的button呢？很简单：像下面那样在xml文件里定义背景。该xml文件将接收到button当前状态并且在外观上做出相应的改变。 </p> 
+<pre class="brush:xml; toolbar: true; auto-links: false;">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+&lt;item android:state_pressed="true" android:drawable="@drawable/btn_bg_selected" /&gt;
+&lt;item android:state_focused="true" android:drawable="@drawable/btn_bg" /&gt;
+&lt;item android:drawable="@drawable/btn_bg" /&gt; &lt;!-- default --&gt;
+&lt;/selector&gt;</pre> 
+<strong>建议22:在Honeycomb之前的版本里时不存在ActionBar跟很多</strong> 
+<strong>animation&nbsp;</strong> 
+<strong>样式的，所以可以使用<strong>ActionBarSherlock 跟<strong>NineOldAndroids来代替。</strong></strong></strong>Jake Wharton写的Android开源 
+<span>组件都是往下兼容的精心杰作。更为惊喜的是，<a href="http://actionbarsherlock.com/" rel="nofollow">ABS</a><span style="font-family:微软雅黑, Verdana, sans-serif, 宋体;line-height:21px;background-color:#F6F6F6;">&nbsp;</span>拥有强大的功能用来定义ActionBar。</span></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/dasunsy' title='dasunsy' target='_blank'><img src="http://static.oschina.net/uploads/user/633/1266455_50.png?t=1379137864000" align="absmiddle" alt="dasunsy" title="dasunsy" class="SmallPortrait" user="1266455"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/dasunsy' target='_blank'>dasunsy</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_24050'>1</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(24050);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23651' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><h3 id="content_h3_15_5"> 把速度作为目标 </h3> 
+<br> 
+<strong>建议23:在运行慢的手机上测试。</strong>你将在运行慢的手机上发现很多问题，同时它让你抓狂，没人会喜欢运行慢的程序。 
+<br> 
+<br> 
+<strong>建议24:尽量减少XML布局层次。</strong>更多的层次意味着系统将为解析你的代码付出更多的工作，这将会让图像渲染的更慢。 
+<br> 
+<br> 
+<strong>建议25:用Android Lint。</strong>在工程目录上右键选择Eclipse&gt;Android Tools&gt;Run Lint。它将会得到程序的一些信息，并能提高程序的运行速度，或者它能让你得代码更加清爽。 
+<br> 
+<br> 
+<strong>建议26:Android Lint可以得到错误信息。</strong>它可以给你的代码提供很详细的信息，并在你出错之前就可以给做出提示。 
+<br> 
+<br> 
+<strong>建议27:用&lt;merge&gt;可以帮助你减少视图层次结构。</strong>这是一种简单的方式来去除多余的层次。好的文章都对此有所解释，而且在 
+<a target="_blank" href="http://android-developers.blogspot.com.ar/2009/03/android-layout-tricks-3-optimize-by.html" rel="nofollow">Android Developer</a>中它也显得与众不同。 
+<br> 
+<br> 
+<strong>建议28:用HierarchyViewer可以直观的看到你布局的层次。</strong>这个智能的工具可以显示布局中有多少层次，而且可以提示出那些可以让程序变慢。 
+<br></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_24086'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(24086);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23652' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议29:如果可以尽量用RelativeLayout</strong><strong>。</strong>AbsoluteLayout已经过期了，就不要用了。你经常会遇到在<span>RelativeLayout和LinearLayout中做出选择的情况，那就直接用RelativeLayouot吧，因为它可以让你减少视图层次。比如，你想实现一个如下视图：</span> </p> 
+<p> <span>盒子 A 在屏幕左半边 |盒子 B在屏幕右半边</span> </p> 
+<p> <span>你首先会想到这么做：</span> </p> 
+<p> <span> </span> </p> 
+<pre class="brush:xml; toolbar: true; auto-links: false;">&lt;LinearLayout
+android:layout_width=”match_parent”
+android:layout_height=”wrap_content”
+android:orientation=”horizontal”
+&gt;
+&lt;TextView
+android:text=”Box A takes up left half of the screen”
+android:layout_width=”0dip”
+android:layout_height=”wrap_content”
+android:layout_weight=”1″
+/&gt;
+&lt;TextView
+android:text=”Box B takes up left half of the screen”
+android:layout_width=”0dip”
+android:layout_height=”wrap_content”
+android:layout_weight=”1″
+/&gt;
+&lt;/LinearLayout&gt;
+That works just fine, but you could also use:
+&lt;RelativeLayout
+android:layout_width=”match_parent”
+android:layout_height=”wrap_content”
+android:orientation=”horizontal”
+&gt;
+&lt;TextView
+android:text=”Box A takes up left half of the screen”
+android:layout_width=”match_parent”
+android:layout_height=”wrap_content”
+android:layout_toLeftOf=”@+id/dummy_center”
+/&gt;
+&lt;View
+android:id=”@+id/dummy_center”
+android:layout_width=”0dip”
+android:layout_height=”0dip”
+android:layout_gravity=”center”
+/&gt;
+&lt;TextView
+android:text=”Box B takes up left half of the screen”
+android:layout_width=”match_parent”
+android:layout_height=”wrap_content”
+android:layout_toRightOf=”@+id/dummy_center”
+/&gt;
+&lt;/RelativeLayout&gt;</pre> 第二个表单比第一个难看的多，事实上是相当的糟糕：我们已经介绍过一个完整的新元素了。但是假如我们要给每个盒子里加入一个图片，一般的我们将这样做： 
+<p> <span><span><span>盒子 A 在屏幕左半边 图片|盒子 B在屏幕右半边&nbsp;<span>图片</span></span></span></span> </p> 
+<p> <span><span><span>用第一中方法，你得创建一个有两个层次的LinearLayout，如果用第二种方法，你可以直接在同一个RelativeLayout中加入图片，比如要指定第一个图片必须在“dummy_center”的左边，而且一个TextView A必须也在其左侧。那么你就得用7个元素3个视图层次了(LinearLayout 方式)，而(RelativeLayout方式)只用6个元素2个层次，这样所有的工作添加完成。</span></span><br> </span> </p></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_24087'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(24087);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23653' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><p> <strong>建议30：用一些扩展工具如DDMS。</strong>这可以帮助你发现一些不必要的网络调用、查看电池使用量、垃圾回收信息，状态变化(例子：当回调onStop和onDestroy时)等。LittleEye是我目前比较喜欢的工具。 <strong><br> </strong> </p> 
+<p> <strong>建议31：用AsyncTasks。</strong>Anroid工程团队受够了人们经常在UI线程里面实现网络调用(译注：耗时操作，容易阻塞UI刷新)，所以他们实现了一些可产生编译级错误信息的API。但是仍然在很多app中的一些工作会拖垮UI线程，我们要考虑到UI布局要快以及提高UI的响应性。 </p></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23775'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23775);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23654' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><h2 id="content_h2_18_5"> <span style="font-size:10pt;line-height:1.5;">目标机器空间小</span> </h2> 
+<p> <strong>建议32：一些Aandroid设备有100mb空间大小的限制。</strong>现在情况已有变化了，但是仍然有很多用户还会担心5Mb大小的app会浪费空间。如果你可以选择将app装入SD卡的话，这就不是问题了，但如果你的app需要在onBoot里启动的话你就不能装入SD卡了(例子：如一些窗体小部件).甚至对于一些新的设备，如果能很快的下载一个小的APK的话，用户还是很高兴的。 <strong><br> </strong> </p> 
+<p> <strong>建议33：用XML资源(我发誓上次我已经提醒过了)</strong>，这将比PNG资源节省很多空间，当你仅仅需要一个可以满足很多屏幕大小的配置时，一个XML文件会比能实现同样功能的PNG省空间。 </p> 
+<strong>建议34：如果要用PNG，最好优化一下(用PNGCrush或<a href="http://imageoptim.com/" target="_blank" rel="nofollow">ImageOptim</a>)</strong> 
+<br></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/yale8848' title='yale8848' target='_blank'><img src="http://static.oschina.net/uploads/user/75/151665_50.jpg?t=1344569147000" align="absmiddle" alt="yale8848" title="yale8848" class="SmallPortrait" user="151665"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/yale8848' target='_blank'>yale8848</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_23776'>0</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(23776);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        		                    <div id='translate_23655' class='translate_chs'>
+<table class='paragraph_chs'>
+    <tr>
+        <td style="border-right:1px solid #E3E3E3;" ><div class='TextContent'><h3 id="content_h3_19_5"> 目标bugs </h3> 
+<strong>建议35:在Android开发者控制台里检查所有被自动检测出来的bugs.</strong> 
+<br> 
+<br> 
+<strong>建议36: ProGuard现在是默认启动着的. Proguard太好用了 (提高你app的速度和降低文件大小)，但这也让StackTraces 非常难以处理。</strong>你将需要重新追踪你的StackTraces，因此你将需要继续保留在每次构建中创建的Proguard的映射文件。我把它们都放到以代码版本号命名的文件夹里。 
+<br> 
+<br> 
+<strong>建议37: 为了显示StackTraces里的行数</strong>，你需要修改ProGuard的配置。确认你的proguard.cfg拥有下面这句话： 
+<br> -keepattributes SourceFile,LineNumberTable 
+<br> 
+<br> 
+<strong>建议38：使用staged rollouts</strong>。测试5%的基础用户，并且观察bug报告。 
+<br> 
+<br> 
+<strong>建议39：使用真实设备测试平台。</strong>Device Anywhere and Perfecto Mobile提供了虚拟测试平台，在那里，你可以使用真正的移动设备。我发现他们有一些笨拙，加入连续不断地进行测试的话，会导致有一些糟糕的情况。如果你在联合办公的环境里工作，或者有一些Android开发的好友，那么去启动一个“设备池”吧。 
+<br> 
+<br> 
+<strong>建议40: 多写代码少写博客。</strong>其实不是的, 分享就是关爱, 我只是想不出第40条写什么是了。 
+<br></div></td>
+        <td class='translater' valign="top">
+                        <a href='http://my.oschina.net/dasunsy' title='dasunsy' target='_blank'><img src="http://static.oschina.net/uploads/user/633/1266455_50.png?t=1379137864000" align="absmiddle" alt="dasunsy" title="dasunsy" class="SmallPortrait" user="1266455"/></a>
+            <div class='info'>
+                <h6><a href='http://my.oschina.net/dasunsy' target='_blank'>dasunsy</a><br/>翻译于 1年前</h6>
+                <p><em id='vote_count_24082'>1</em>人顶</p>
+            </div>
+            <div class='clear'></div>
+            <p class='vote'>
+            <a href='javascript:vote_block(24082);' class='rndbutton'><span>顶</span></a>&nbsp;翻译的不错哦!
+            			            </p>
+        </td>
+    </tr>
+    </table>
+</div>
+        				<div class="copyright">
+			本文中的所有译文仅用于学习和交流目的，转载请务必注明文章译者、出处、和本文链接<br/>
+			我们的翻译工作遵照 <a href='http://zh.wikipedia.org/wiki/Wikipedia:CC' target='_blank'>CC 协议</a>，如果我们的工作有侵犯到您的权益，请及时联系我们
+		</div>
+	</div>
+	<div style="margin:10px 0;">
+	    </div>
+		<div class='Bottom'>
+		<div class='google_ads' style='float:right;width:300px;'>
+			<script type="text/javascript"><!--
+            google_ad_client = "ca-pub-7090564139599510";
+            /* translate-comments */
+            google_ad_slot = "8977750911";
+            google_ad_width = 300;
+            google_ad_height = 250;
+            //-->
+            </script>
+            <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+		</div>
+        <script>
+			$(function(){
+				$(window).scroll(function() {
+					var $offset = $('.google_ads').last().offset();
+            		if($(window).scrollTop()>($offset.top)) {
+            			$('.google_ads iframe').first().css({'position':'fixed','top':'0px','left':$offset.left+'px','margin-top':'10px','z-index':'999'});
+            		}
+            		else {
+            			$('.google_ads iframe').first().css({'position':'relative','top':'','left':'','margin-top':'0','z-index':'0'});
+            		}
+				});
+			});
+		</script>
+				<div class='comments'>
+			<a name='comments'></a>
+			<h2>
+                <a href='#top' class="more">回页面顶部</a><a href='#commentForm' class="more" style="margin-right:10px;color:#080;">发表评论</a>
+                网友评论<span>共<em class='reply_count'>38</em>条</span>
+            </h2>
+						<ul class='list'><li class='comment' id='cmt_1359_875958_9224'>
+	<div class='user'><a href="http://my.oschina.net/u/875958" name="rpl_9224"><img src="http://static.oschina.net/uploads/user/437/875958_50.jpg?t=1378028579000" align="absmiddle" alt="wangaowell" title="wangaowell" class="SmallPortrait" user="875958"/></a></div>
+	<div class='body'>
+		<div class='time'><b>wangaowell</b>   发表于 2013-09-16 08:45</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>不错的建议。</div>
+		<div id='inline_reply_of_1359_875958_9224' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_261847_9225'>
+	<div class='user'><a href="http://my.oschina.net/breakjoa" name="rpl_9225"><img src="http://static.oschina.net/uploads/user/130/261847_50.jpg?t=1416885391000" align="absmiddle" alt="开源中国心理科主任" title="开源中国心理科主任" class="SmallPortrait" user="261847"/></a></div>
+	<div class='body'>
+		<div class='time'><b>开源中国心理科主任</b>   发表于 2013-09-16 08:52</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>留个记号。</div>
+		<div id='inline_reply_of_1359_261847_9225' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_190084_9226'>
+	<div class='user'><a href="http://my.oschina.net/snowdream86" name="rpl_9226"><img src="http://static.oschina.net/uploads/user/95/190084_50.jpg" align="absmiddle" alt="snowdream" title="snowdream" class="SmallPortrait" user="190084"/></a></div>
+	<div class='body'>
+		<div class='time'><b>snowdream</b>   发表于 2013-09-16 09:02</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>mark</div>
+		<div id='inline_reply_of_1359_190084_9226' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_943847_9227'>
+	<div class='user'><a href="http://my.oschina.net/u/943847" name="rpl_9227"><img src="http://static.oschina.net/uploads/user/471/943847_50.jpg?t=1359200435000" align="absmiddle" alt="marcohsu" title="marcohsu" class="SmallPortrait" user="943847"/></a></div>
+	<div class='body'>
+		<div class='time'><b>marcohsu</b>   发表于 2013-09-16 09:05</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>好文收藏</div>
+		<div id='inline_reply_of_1359_943847_9227' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_222918_9228'>
+	<div class='user'><a href="http://my.oschina.net/xjren" name="rpl_9228"><img src="http://static.oschina.net/uploads/user/111/222918_50.jpg?t=1377244217000" align="absmiddle" alt="yanlong" title="yanlong" class="SmallPortrait" user="222918"/></a></div>
+	<div class='body'>
+		<div class='time'><b>yanlong</b>   发表于 2013-09-16 09:11</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>真不错啊</div>
+		<div id='inline_reply_of_1359_222918_9228' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_1243047_9229'>
+	<div class='user'><a href="http://my.oschina.net/u/1243047" name="rpl_9229"><img src="/img/portrait.gif?t=1377425910000" align="absmiddle" alt="锦城飞雨" title="锦城飞雨" class="SmallPortrait" user="1243047"/></a></div>
+	<div class='body'>
+		<div class='time'><b>锦城飞雨</b> 来自 <a href="http://www.oschina.net/mobile" target="_blank">Android</a>  发表于 2013-09-16 09:30</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>受益匪浅！</div>
+		<div id='inline_reply_of_1359_1243047_9229' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_1029033_9230'>
+	<div class='user'><a href="http://my.oschina.net/folyd" name="rpl_9230"><img src="http://static.oschina.net/uploads/user/514/1029033_50.jpg?t=1413251615000" align="absmiddle" alt="Glide" title="Glide" class="SmallPortrait" user="1029033"/></a></div>
+	<div class='body'>
+		<div class='time'><b>Glide</b> 来自 <a href="http://www.oschina.net/mobile" target="_blank">Android</a>  发表于 2013-09-16 09:31</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>非常不错的文章。</div>
+		<div id='inline_reply_of_1359_1029033_9230' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_928240_9231'>
+	<div class='user'><a href="http://my.oschina.net/u/928240" name="rpl_9231"><img src="/img/portrait.gif?t=1377425910000" align="absmiddle" alt="andy_blue" title="andy_blue" class="SmallPortrait" user="928240"/></a></div>
+	<div class='body'>
+		<div class='time'><b>andy_blue</b>   发表于 2013-09-16 09:31</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>mark</div>
+		<div id='inline_reply_of_1359_928240_9231' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_591331_9232'>
+	<div class='user'><a href="http://my.oschina.net/u/591331" name="rpl_9232"><img src="http://static.oschina.net/uploads/user/295/591331_50.jpg?t=1393466549000" align="absmiddle" alt="akira82" title="akira82" class="SmallPortrait" user="591331"/></a></div>
+	<div class='body'>
+		<div class='time'><b>akira82</b>   发表于 2013-09-16 09:35</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>真心好文章，转给我的同事</div>
+		<div id='inline_reply_of_1359_591331_9232' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_182926_9233'>
+	<div class='user'><a href="http://my.oschina.net/u/182926" name="rpl_9233"><img src="http://static.oschina.net/uploads/user/91/182926_50.jpg?t=1378204074000" align="absmiddle" alt="hellocpp" title="hellocpp" class="SmallPortrait" user="182926"/></a></div>
+	<div class='body'>
+		<div class='time'><b>hellocpp</b>   发表于 2013-09-16 09:36</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>写得不错。</div>
+		<div id='inline_reply_of_1359_182926_9233' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_252749_9234'>
+	<div class='user'><a href="http://my.oschina.net/luozheng" name="rpl_9234"><img src="http://static.oschina.net/uploads/user/126/252749_50.jpg?t=1387982171000" align="absmiddle" alt="铂金小狼" title="铂金小狼" class="SmallPortrait" user="252749"/></a></div>
+	<div class='body'>
+		<div class='time'><b>铂金小狼</b>   发表于 2013-09-16 09:46</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>好文章就要顶</div>
+		<div id='inline_reply_of_1359_252749_9234' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_1020406_9235'>
+	<div class='user'><a href="http://my.oschina.net/lh7477009" name="rpl_9235"><img src="http://static.oschina.net/uploads/user/510/1020406_50.jpg?t=1380116777000" align="absmiddle" alt="lh7477009" title="lh7477009" class="SmallPortrait" user="1020406"/></a></div>
+	<div class='body'>
+		<div class='time'><b>lh7477009</b>   发表于 2013-09-16 10:06</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>mark之。</div>
+		<div id='inline_reply_of_1359_1020406_9235' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_252749_9236'>
+	<div class='user'><a href="http://my.oschina.net/luozheng" name="rpl_9236"><img src="http://static.oschina.net/uploads/user/126/252749_50.jpg?t=1387982171000" align="absmiddle" alt="铂金小狼" title="铂金小狼" class="SmallPortrait" user="252749"/></a></div>
+	<div class='body'>
+		<div class='time'><b>铂金小狼</b>   发表于 2013-09-16 10:19</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>http://www.admin10000.com/document/2907.html <a href='http://my.oschina.net/javayou' class='referer' target='_blank'>@红薯</a>  </div>
+		<div id='inline_reply_of_1359_252749_9236' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_222249_9238'>
+	<div class='user'><a href="http://my.oschina.net/u/222249" name="rpl_9238"><img src="http://static.oschina.net/uploads/user/111/222249_50.jpg" align="absmiddle" alt="锅锅的爸爸" title="锅锅的爸爸" class="SmallPortrait" user="222249"/></a></div>
+	<div class='body'>
+		<div class='time'><b>锅锅的爸爸</b>   发表于 2013-09-16 11:11</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>好文章！！，感谢翻译组的工作</div>
+		<div id='inline_reply_of_1359_222249_9238' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_731007_9239'>
+	<div class='user'><a href="http://my.oschina.net/HuJifeng" name="rpl_9239"><img src="http://static.oschina.net/uploads/user/365/731007_50.jpg?t=1376485591000" align="absmiddle" alt="Pupa" title="Pupa" class="SmallPortrait" user="731007"/></a></div>
+	<div class='body'>
+		<div class='time'><b>Pupa</b>   发表于 2013-09-16 11:23</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>值得收藏</div>
+		<div id='inline_reply_of_1359_731007_9239' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_1174380_9240'>
+	<div class='user'><a href="http://my.oschina.net/mugg" name="rpl_9240"><img src="http://static.oschina.net/uploads/user/587/1174380_50.jpg?t=1372470044000" align="absmiddle" alt="穆哥哥" title="穆哥哥" class="SmallPortrait" user="1174380"/></a></div>
+	<div class='body'>
+		<div class='time'><b>穆哥哥</b>   发表于 2013-09-16 11:42</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>很好的建议！</div>
+		<div id='inline_reply_of_1359_1174380_9240' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_166111_9241'>
+	<div class='user'><a href="http://my.oschina.net/u/166111" name="rpl_9241"><img src="/img/portrait.gif?t=1377425910000" align="absmiddle" alt="请叫我壮壮" title="请叫我壮壮" class="SmallPortrait" user="166111"/></a></div>
+	<div class='body'>
+		<div class='time'><b>请叫我壮壮</b>   发表于 2013-09-16 11:43</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>mark</div>
+		<div id='inline_reply_of_1359_166111_9241' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_724460_9243'>
+	<div class='user'><a href="http://my.oschina.net/winktj" name="rpl_9243"><img src="http://static.oschina.net/uploads/user/362/724460_50.png?t=1384516671000" align="absmiddle" alt="winktj" title="winktj" class="SmallPortrait" user="724460"/></a></div>
+	<div class='body'>
+		<div class='time'><b>winktj</b>   发表于 2013-09-16 12:59</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>写得不错</div>
+		<div id='inline_reply_of_1359_724460_9243' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_577632_9244'>
+	<div class='user'><a href="http://my.oschina.net/xsjayz" name="rpl_9244"><img src="http://static.oschina.net/uploads/user/288/577632_50.jpg?t=1408028861000" align="absmiddle" alt="Xushao" title="Xushao" class="SmallPortrait" user="577632"/></a></div>
+	<div class='body'>
+		<div class='time'><b>Xushao</b>   发表于 2013-09-16 13:22</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>看到40的时候吓一跳。</div>
+		<div id='inline_reply_of_1359_577632_9244' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li><li class='comment' id='cmt_1359_105009_9246'>
+	<div class='user'><a href="http://my.oschina.net/aowu" name="rpl_9246"><img src="http://static.oschina.net/uploads/user/52/105009_50.jpg" align="absmiddle" alt="惊天" title="惊天" class="SmallPortrait" user="105009"/></a></div>
+	<div class='body'>
+		<div class='time'><b>惊天</b>   发表于 2013-09-16 14:34</div>
+		<div class='opts'>
+						</div>
+		<div class='clear'></div>
+		<div class='detail'>很好</div>
+		<div id='inline_reply_of_1359_105009_9246' class='inline_reply'></div>
+	</div>
+	<div class='clear'></div>
+</li></ul>
+                                                                                                <ul class="pager">
+                        <li class='page current'><a href="?p=1">1</a></li>            <li class='page'><a href="?p=2#comments">2</a></li>            <li class='page next'><a href="?p=2#comments">&gt;</a></li>        </ul>
+            			<div class='clear'></div>
+			<div class='commentForm'>
+				<div class='user'><a href="" name="commentForm"><img src="/img/portrait.gif?t=1377425910000" align="absmiddle" alt="非会员用户" title="非会员用户" class="SmallPortrait" user=""/></a></div>
+    			<form id='form_comment' action='/action/translate/comment?' method='post'>
+					<input type="hidden" value="1359" name="article">
+    				<textarea id='txt_comment' name='content' onkeydown="if((event.metaKey || event.ctrlKey)&&event.keyCode==13){$('#form_comment').submit();}" style='width:600px;height:100px;'></textarea><br/>
+    				<input type='submit' value=' 发表评论 ' id='FormSubmitButton' class='SUBMIT rndbutton'/>
+    				<span id="form_msg" style='display:none;'></span>
+					<p style='margin-top:36px;'><a href='#comments'>回评论顶部</a> | <a href='#top'>回页面顶部</a></p>
+    			</form>
+			</div>
+		</div>
+        <div class="clear"></div>
+	</div>
+	</div>
+<div class='clear'></div>
+<div id="inline_reply_editor" style="display:none;">
+    <div class="CommentForm">
+        <form id="form_inline_comment" method="POST" action="/action/translate/comment">
+            <input id="inline_reply_id" type="hidden" value="" name="reply_id">
+			<input type="hidden" value="1359" name="article">
+            <textarea id="txt_focus" onkeydown="if((event.metaKey || event.ctrlKey)&&event.keyCode==13){$('#form_inline_comment').submit();}" style="width:400px;height:80px;" name="content"></textarea>
+            <br>
+            <input class="SUBMIT" type="submit" value="回复">
+            <input id="btn_close_inline_reply" class="SUBMIT" type="button" value="关闭">
+            文明上网，理性发言
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/sh309/scripts/xregexp-min.js?t=1406837068000"></script>
+<script type="text/javascript" src="/js/sh309/scripts/shCore.min.js?t=1406837068000"></script>
+<script type="text/javascript" src="/js/sh309/scripts/shAutoloader.js?t=1406837068000"></script>
+<link type="text/css" rel="stylesheet" href="/js/sh309/styles/shCore.css?t=1406837068000"/>
+<link type="text/css" rel="Stylesheet" href="/js/sh309/styles/shThemeDefault.css?t=1406837068000"/>
+
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+            'applescript			/js/sh309/scripts/shBrushAppleScript.js?t=1406837068000',
+            'actionscript3 as3		/js/sh309/scripts/shBrushAS3.js?t=1406837068000',
+            'bash shell				/js/sh309/scripts/shBrushBash.js?t=1406837068000',
+            'coldfusion cf			/js/sh309/scripts/shBrushColdFusion.js?t=1406837068000',
+            'cpp c					/js/sh309/scripts/shBrushCpp.js?t=1406837068000',
+            'obj-c objc				/js/sh309/scripts/shBrushObjC.js?t=1406837068000',
+            'c# c-sharp csharp		/js/sh309/scripts/shBrushCSharp.js?t=1406837068000',
+            'css					/js/sh309/scripts/shBrushCss.js?t=1406837068000',
+            'delphi pascal			/js/sh309/scripts/shBrushDelphi.js?t=1406837068000',
+            'diff patch pas			/js/sh309/scripts/shBrushDiff.js?t=1406837068000',
+            'erl erlang				/js/sh309/scripts/shBrushErlang.js?t=1406837068000',
+            'groovy					/js/sh309/scripts/shBrushGroovy.js?t=1406837068000',
+            'haxe hx				/js/sh309/scripts/shBrushHaxe.js?t=1406837068000',
+            'java					/js/sh309/scripts/shBrushJava.js?t=1406837068000',
+            'jfx javafx				/js/sh309/scripts/shBrushJavaFX.js?t=1406837068000',
+            'js jscript javascript	/js/sh309/scripts/shBrushJScript.js?t=1406837068000',
+            'perl pl				/js/sh309/scripts/shBrushPerl.js?t=1406837068000',
+            'php					/js/sh309/scripts/shBrushPhp.js?t=1406837068000',
+            'text plain				/js/sh309/scripts/shBrushPlain.js?t=1406837068000',
+            'py python				/js/sh309/scripts/shBrushPython.js?t=1406837068000',
+            'ruby rails ror rb		/js/sh309/scripts/shBrushRuby.js?t=1406837068000',
+            'scala					/js/sh309/scripts/shBrushScala.js?t=1406837068000',
+            'sql					/js/sh309/scripts/shBrushSql.js?t=1406837068000',
+            'vb vbnet				/js/sh309/scripts/shBrushVb.js?t=1406837068000',
+            'xml xhtml xslt html	/js/sh309/scripts/shBrushXml.js?t=1406837068000'
+    );
+    SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="/action/visit/translate?id=1359"></script>
+<link type="text/css" rel="stylesheet" href="/js/syntax-highlighter-2.1.382/styles/shThemeDefault.css?t=1377425746000"/>
+<script type='text/javascript'>
+$(document).ready(function() {
+	$('#form_comment').ajaxForm({
+    	dataType: 'json',
+		beforeSubmit: function(){
+			$('#FormSubmitButton').attr('disabled','disabled');
+			$('#form_msg').html("<span class='ajax_processing'>正在提交评论，请稍候...</span>");	
+			$('#form_msg').show();	
+		},
+        success: function(json) {
+			$('#FormSubmitButton').removeAttr('disabled');
+			    		if(json.msg){
+				$('#form_msg').html("<span class='error_msg'>"+json.msg+"</span>");
+				$('#form_msg').show();
+			}
+    		else if(json.id){
+    			ajax_get("/translate/show_comment?_cmt_id="+json.id, true, function(data){
+    				$('.comments ul.list').append(data);
+					$('#txt_comment').val('');
+					$('.reply_count').html(json.reply_count);
+    			});
+				$('#form_msg').hide();
+    		}
+        }
+    });
+});
+function delete_c(aid,uid,cid) {
+	if(confirm("您确认要删除此评论？")){
+        ajax_post("/action/translate/delete_comments",{cmt:cid},function(html){
+			if(html.length>0)
+				alert(html);
+			else {
+				$("#cmt_"+aid+"_"+uid+"_"+cid).fadeOut();
+				$('.reply_count').html(parseInt($('.reply_count').html())-1);
+			}
+		});
+	}
+}
+function reply_c(aid,uid,cid) {
+	$('.inline_reply').empty();
+	var div_id = '#inline_reply_of_'+aid+'_'+uid+'_'+cid;
+	$('#inline_reply_id').val(uid+'_'+cid);
+	$(div_id).html($('#inline_reply_editor').html());
+	$('#txt_focus').focus();
+	$('#btn_close_inline_reply').click(function(){
+		$(div_id).empty();
+	});
+	$('#form_inline_comment').ajaxForm({
+    	dataType: 'json',
+    	success: function(json) {
+        	if(json.msg){
+        		alert(json.msg);
+        	}
+			else if(json.id){
+				ajax_get("/translate/show_comment?_cmt_id="+json.id, true, function(data){
+    				$('.comments ul.list').append(data);
+					$('.reply_count').html(json.reply_count);
+					$(div_id).empty();
+    			});
+			}
+    	}
+	});
+}
+function vote_article(id) {
+		alert("必须登录后才能操作 :)");
+	}
+function vote_block(id) {
+		alert("必须登录后才能操作 :)");
+	}
+function show_other(pid,ppid) {
+	if($('#other_translate_'+pid+' .paragraph_chs').length==0) {
+    	$('#other_translate_'+pid).show();
+    	ajax_post("/translate/show_other_translate","pid="+pid+"&ppid="+ppid,function(html){
+    		$('#other_translate_'+pid).hide().html(html);
+			// 代码着色
+			$('#other_translate_'+pid+' pre').each(function(){
+				SyntaxHighlighter.highlight(null,this);
+			});
+			$('#other_translate_'+pid).slideDown();
+    	});
+    	}
+	else {
+		$('#other_translate_'+pid).slideToggle();
+	}
+	$('#btn_show_other_'+pid).toggleClass('closeOthers');
+	$('#translate_'+pid).toggleClass('bd10');
+}
+function edit_tags(id) {
+    popup("/translate/edit_tags?article="+id);
+}
+</script><div class='clear'></div></div>
+	<div id="OSC_Footer" class='CenterDiv'><style>
+.oscapp {text-align:left; width:220px;}
+.oscapp span {float:left;width:140px;}
+.oscapp a {float:left;text-indent:-9999em;width:16px;margin-left:8px;}
+.oscapp a.android {background:url('/img/android.gif') no-repeat left center;}
+.oscapp a.iphone {background:url('/img/iphone.gif') no-repeat left center;}
+.oscapp a.wp7 {background:url('/img/wp7.gif') no-repeat left center;}
+</style>
+<table width='100%'><tr>
+<td align='left'>&copy; 开源中国(OSChina.NET) | <a href="http://www.oschina.net/home/aboutosc">关于我们</a> | <a href="mailto:oschina.net@gmail.com">广告联系</a> | <a href="http://weibo.com/oschina2010" target="_blank">@新浪微博</a> | <a href="http://m.oschina.net/">开源中国手机版</a> | <a href='http://www.miitbeian.gov.cn/' target='_blank' style='color:#737573;text-decoration:none;'>粤ICP备12009483号-3</a></td>
+<td class='oscapp'>
+	<span>开源中国手机客户端：</span>
+	<a href="http://www.oschina.net/app" class='android' title='Android客户端'>Android</a>
+	<a href="http://www.oschina.net/app" class='iphone' title='iPhone 客户端'>iPhone</a>
+	<a href="http://www.oschina.net/app" class='wp7' title='Windows Phone 客户端'>WP7</a>
+</td>
+</tr>
+<tr>
+<td colspan='2' align='left'>开源中国社区(OSChina.net)是工信部 <a href='http://www.copu.org.cn/' target='_blank'>开源软件推进联盟</a> 指定的官方社区</td>
+</tr>
+</table>
+<script type='text/javascript'>
+<!--
+if (top.location != self.location)top.location=self.location;
+//-->
+</script></div>
+</div>
+</body>
+</html>
+<!-- Generated by OsChina.NET (init:0[ms],page:40[ms],ip:119.122.161.230) -->
