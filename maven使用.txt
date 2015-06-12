@@ -1,0 +1,14 @@
+maven 3.2.5使用
+1.官网 http://maven.apache.org/download.cgi#Maven_Documentation 下载maven-3.2.5 该版本必须要JDK 1.6以上
+2.配置maven环境变量 
+	MAVEN_HOME  -- 解压路径
+	path 中增加 %MAVEN_HOME%\bin
+3.验证是否配置成功
+	mvn -v 
+4.可以修改maven repo目录
+	创建目录 e:\maven\repo
+	找到 %MAVEN_HOME%\conf\settings.xml 打开找到 <localRepository>e:\maven\repo</localRepository>
+
+
+5 maven 命令
+	mvn help:system 从maven的中央仓库下载到本地仓库e:\maven\repo
