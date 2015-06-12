@@ -1,0 +1,2 @@
+git remote add origin https://github.com/cyxowen/rce.git //建立和远程库的链接
+git push -u origin master //把本地master分支推送到远程库的master(origin)分支
